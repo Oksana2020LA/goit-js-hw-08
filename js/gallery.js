@@ -71,18 +71,17 @@ gallery.addEventListener('click', handleImageClick);
 
 function createMarkup(arr) {
   return arr
-    .map(
-      ({ preview, original, description }) => `
+    .map (({ preview, original, description }) => `
       <li class="gallery-item">
-  <a class="gallery-link" href="${original}">
-    <img
-      class="gallery-image"
-      src="${preview}"
-      data-source="${original}"
-      alt="${description}"
-    />
-  </a>
-</li>`
+        <a class="gallery-link" href="${original}">
+          <img
+            class="gallery-image"
+            src="${preview}"
+            data-source="${original}"
+            alt="${description}"
+          />
+        </a>
+      </li>`
     )
     .join('');
 }
@@ -93,10 +92,10 @@ function handleImageClick(event) {
   if (event.target === event.currentTarget) {
     return;
   }
-  const instance = basicLightbox.create(
+  
+  const instance = basicLightbox.create (
     `<img class="image-original" src="${event.target.dataset.source}" alt="${event.target.alt}" width="800"
-  height="600">`,
-    {
+  height="600">`, {
       onShow: () => {
         document.addEventListener('keydown', closeModalImg);
       },
